@@ -1,4 +1,5 @@
----
+# 05-install-kubernetes.yaml
+
 - hosts: master
   remote_user: kato
   become: yes
@@ -13,4 +14,4 @@
         group: sudo
     - name: "Install k8 cluster"
       shell: |
-              ./kk create cluster -f ~/config-sample.yaml -y
+        ./kk create cluster -f ~/config-sample.yaml -y
