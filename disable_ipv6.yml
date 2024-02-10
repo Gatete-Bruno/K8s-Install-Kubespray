@@ -1,0 +1,16 @@
+---
+- name: Disable IPv6 on Ubuntu Servers
+  hosts: all
+  remote_user: kato
+  become: yes
+  tasks:
+    - name: Disable IPv6
+      sysctl:
+        name: net.ipv6.conf.all.disable_ipv6
+        value: 1
+      ignore_errors: yes
+      when: "'ipv6' in ansible_interfaces"
+
+    - name: Save sysctl changes
+      command: sysctl -p
+
