@@ -1,7 +1,9 @@
----
+
+# 01-update-servers.yaml
+
 - hosts: all
   remote_user: kato
-  become: yes  # Add this line to run tasks with elevated privileges
+  become: yes
   tasks:
     - name: "Update Repository cache"
       apt:
